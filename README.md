@@ -7,8 +7,8 @@ Perceiving Distances and Construing Targets Based on Communication
 * Slava Jankin, University of Birmingham
 
 # Note on Code
-* All analysis code is find in the R repo
-* `perc_dist_master.r` binds it all, and explains the whole R code
+* All analysis code is find in the R repo in the code folder
+* `code/perc_dist_master.r` binds it all, and explains the whole R code
 * for experiment number 3, you can find the Heideltime implementation to annotate the NYT corpus in the NlpParser folder
 
 # Problems? Questions?
