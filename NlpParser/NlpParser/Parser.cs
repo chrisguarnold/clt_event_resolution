@@ -71,7 +71,7 @@ namespace NlpParser
 		void CombineAnnotationsWithOriginalFiles()
 		{
 			var annotationsPath = "annotations";
-			var originalFilesPath = "cop_26";
+			var originalFilesPath = "NYT_Corpus";
 			var outputPath = "output";
 
 			if (Directory.Exists(outputPath) == false)
@@ -92,7 +92,7 @@ namespace NlpParser
 		void MoveTimeXTagsIntoXmlFile()
 		{
 			var annotationsPath = "annotations";
-			var originalsPath = "cop_26";
+			var originalsPath = "NYT_Corpus";
 
 			foreach (var file in Directory.EnumerateFiles(annotationsPath, "*.xml", SearchOption.AllDirectories))
 			{
@@ -148,8 +148,8 @@ namespace NlpParser
 				zipArchive.ExtractToDirectory(".");
 			}
 
-			using var cop26Directory = new TempDirectory("Cop_26");
-			UnZipFromFile("cop_26.zip", cop26Directory);
+			using var NYT_Directory = new TempDirectory("NYT_Corpus");
+			UnZipFromFile("NYT_Corpus.zip", NYT_Directory);
 
 			var jarRoot = StanfordCoreNlpVersion;
 			var modelsDirectory = Path.Combine(jarRoot, @"edu\stanford\nlp\models");
@@ -180,7 +180,7 @@ namespace NlpParser
 			if (Directory.Exists(outputDirectory) == false)
 				Directory.CreateDirectory(outputDirectory);
 
-			Parallel.ForEach(Directory.EnumerateFiles(cop26Directory, "*.xml", SearchOption.AllDirectories),
+			Parallel.ForEach(Directory.EnumerateFiles(NYT_Directory, "*.xml", SearchOption.AllDirectories),
 				new ParallelOptions(),
 				file =>
 				{
